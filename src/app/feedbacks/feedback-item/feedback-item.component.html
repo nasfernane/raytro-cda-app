@@ -1,1 +1,7 @@
-<p>feedback-item works!</p>
+<div *ngIf="feedback.type === 'like'" class="feedback feedback--like">
+  <p class="feedback__content">{{ feedback.content }}</p>
+</div>
+
+<div *ngIf="feedback.type === 'dislike'" class="feedback feedback--dislike">
+  <p class="feedback__content">{{ feedback.content }}</p>
+</div>

@@ -1,1 +1,5 @@
-<p>feedback-container works!</p>
+<div class="feedback-container">
+    <app-feedback-item *ngFor="let feedback of feedbacks" [feedback]="feedback">
+    </app-feedback-item>
+</div>
+
