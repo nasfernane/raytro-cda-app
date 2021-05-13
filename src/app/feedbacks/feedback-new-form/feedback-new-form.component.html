@@ -2,12 +2,16 @@
   <h2>Ajoutez un nouveau feedback !</h2>
   <div class="new-feedback__item">
     <label for="like-fb">J'aime</label>
-    <input type="text" id="like-fb" class="new-feedback" />
-    <button class="btn btn-like">Ajouter</button>
+    <input type="text" id="like-fb" class="new-feedback" #newLikeInput />
+    <button class="btn btn-like" (click)="onAddNewLike(newLikeInput)">
+      Ajouter
+    </button>
   </div>
   <div class="new-feedback__item">
     <label for="dislike-fb">J'aime moins</label>
-    <input type="text" id="dislike-fb" class="new-feedback" />
-    <button class="btn btn-dislike">Ajouter</button>
+    <input type="text" id="dislike-fb" class="new-feedback" #newDislikeInput />
+    <button class="btn btn-dislike" (click)="onAddNewDislike(newDislikeInput)">
+      Ajouter
+    </button>
   </div>
 </div>

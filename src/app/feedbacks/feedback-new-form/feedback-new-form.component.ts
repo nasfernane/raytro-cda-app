@@ -1,15 +1,31 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-feedback-new-form',
   templateUrl: './feedback-new-form.component.html',
-  styleUrls: ['./feedback-new-form.component.scss']
+  styleUrls: ['./feedback-new-form.component.scss'],
 })
 export class FeedbackNewFormComponent implements OnInit {
+  @Output() feedbackAdded = new EventEmitter<{
+    type: string;
+    content: string;
+  }>();
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  onAddNewLike(likeInput: HTMLInputElement) {
+    this.feedbackAdded.emit({
+      type: 'like',
+      content: likeInput.value,
+    });
   }
 
+  onAddNewDislike(dislikeInput: HTMLInputElement) {
+    this.feedbackAdded.emit({
+      type: 'dislike',
+      content: dislikeInput.value,
+    });
+  }
 }

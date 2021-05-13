@@ -12,6 +12,13 @@ export class FeedbackContainerComponent implements OnInit {
     { type: 'dislike', content: 'coucoucougsgdsg' },
   ];
 
+  onFeedbackAdded(feedback: { type: string; content: string }) {
+    this.feedbacks.push({
+      type: feedback.type,
+      content: feedback.content,
+    });
+  }
+
   constructor() {}
 
   ngOnInit(): void {}

@@ -1,5 +1,8 @@
 <div class="feedback-container">
-    <app-feedback-item *ngFor="let feedback of feedbacks" [feedback]="feedback">
-    </app-feedback-item>
+  <app-feedback-item *ngFor="let feedback of feedbacks" [feedback]="feedback">
+  </app-feedback-item>
 </div>
 
+<app-feedback-new-form
+  (feedbackAdded)="onFeedbackAdded($event)"
+></app-feedback-new-form>
