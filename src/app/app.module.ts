@@ -8,6 +8,8 @@ import { FeedbackContainerComponent } from './feedbacks/feedback-container/feedb
 import { FeedbackItemComponent } from './feedbacks/feedback-item/feedback-item.component';
 import { FeedbackNewFormComponent } from './feedbacks/feedback-new-form/feedback-new-form.component';
 import { FeedbackNewItemComponent } from './feedbacks/feedback-new-item/feedback-new-item.component';
+import { LoginFormComponent } from './auth/login-form/login-form.component';
+import { SignupFormComponent } from './auth/signup-form/signup-form.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import { FeedbackNewItemComponent } from './feedbacks/feedback-new-item/feedback
     FeedbackItemComponent,
     FeedbackNewFormComponent,
     FeedbackNewItemComponent,
+    LoginFormComponent,
+    SignupFormComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
