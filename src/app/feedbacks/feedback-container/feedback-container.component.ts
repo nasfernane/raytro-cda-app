@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Feedback } from '../feedback.model';
 
 @Component({
   selector: 'app-feedback-container',
@@ -12,7 +13,7 @@ export class FeedbackContainerComponent implements OnInit {
     { type: 'dislike', content: 'coucoucougsgdsg' },
   ];
 
-  onFeedbackAdded(feedback: { type: string; content: string }) {
+  onFeedbackAdded(feedback: Feedback) {
     this.feedbacks.push({
       type: feedback.type,
       content: feedback.content,
