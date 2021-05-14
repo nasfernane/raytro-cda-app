@@ -1,7 +1,22 @@
+.auth-background {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -999;
+  background-image: url("../../../assets/img/retro-bg.jpg");
+  background-size: cover;
+}
+
 .loginForm {
   margin: 0 auto;
+  margin-top: 10rem;
   width: 50%;
-  font-size: 1.6rem;
+  font-size: 2rem;
+  border-radius: 0.8rem;
+  padding: 2rem 5rem;
+  background-color: rgba(255, 255, 255, 0.8);
 
   &__field {
     display: flex;

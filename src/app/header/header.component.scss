@@ -6,13 +6,13 @@ $color-font: #444444;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 1.6rem;
+  font-size: 2rem;
   padding: 0rem 4rem;
   border-bottom: $color-font solid 0.1rem;
   margin-bottom: 3rem;
 
   &__title {
-    font-size: 2rem;
+    font-size: 3rem;
     font-variant: small-caps;
     font-weight: bold;
   }
@@ -33,6 +33,10 @@ $color-font: #444444;
           text-decoration: underline;
         }
       }
+    }
+
+    li.active {
+      font-weight: bold;
     }
   }
 }

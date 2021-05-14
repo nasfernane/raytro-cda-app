@@ -3,11 +3,13 @@
     <p>Raytro App</p>
   </div>
   <ul class="header__nav">
-    <li><a routerLink="/feedbacks">Feedbacks</a></li>
-    <li><a routerLink="/archives">Archives</a></li>
-    <li><a routerLink="/admin">Admin</a></li>
-    <li><a routerLink="/login">Se connecter</a></li>
-    <li><a routerLink="/signup">S'inscrire</a></li>
-    <li><a routerLink="">Se déconnecter</a></li>
+    <li routerLinkActive="active"><a routerLink="/feedbacks">Feedbacks</a></li>
+    <li routerLinkActive="active"><a routerLink="/archives">Archives</a></li>
+    <li routerLinkActive="active"><a routerLink="/admin">Admin</a></li>
+    <li routerLinkActive="active"><a routerLink="/login">Se connecter</a></li>
+    <li routerLinkActive="active"><a routerLink="/signup">S'inscrire</a></li>
+    <li routerLinkActive="active">
+      <a routerLink="/logout">Se déconnecter</a>
+    </li>
   </ul>
 </nav>
