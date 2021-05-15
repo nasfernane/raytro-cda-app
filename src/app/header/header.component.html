@@ -5,8 +5,8 @@
     <li routerLinkActive="active"><a routerLink="/admin">Admin</a></li>
     <li routerLinkActive="active"><a routerLink="/login">Se connecter</a></li>
     <li routerLinkActive="active"><a routerLink="/signup">S'inscrire</a></li>
-    <li routerLinkActive="active">
-      <a routerLink="/logout">Se déconnecter</a>
+    <li routerLinkActive="active" (click)="onLogout()">
+      <a href="#">Se déconnecter</a>
     </li>
   </ul>
 </nav>
