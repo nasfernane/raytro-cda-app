@@ -11,6 +11,7 @@ import { FeedbackNewItemComponent } from './feedbacks/feedback-new-item/feedback
 import { LoginFormComponent } from './auth/login-form/login-form.component';
 import { SignupFormComponent } from './auth/signup-form/signup-form.component';
 import { ArchivesComponent } from './archives/archives.component';
+import { ArchiveComponent } from './archives/archive/archive.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ArchivesComponent } from './archives/archives.component';
     LoginFormComponent,
     SignupFormComponent,
     ArchivesComponent,
+    ArchiveComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],

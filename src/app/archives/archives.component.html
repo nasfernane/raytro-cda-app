@@ -1,10 +1,9 @@
 <div class="archives-container">
   <div class="archives-container__pick">
     <label for="archive-date">Choisisez votre date</label>
-    <input type="date" id="archive-date" #dateInput />
+    <input type="week" id="archive-date" #dateInput />
     <button (click)="getArchive(dateInput)">Voir</button>
   </div>
-  <div class="archives-container__archive" *ngIf="archive">
-    {{ archive.date }}
-  </div>
+
+  <router-outlet></router-outlet>
 </div>
