@@ -22,6 +22,27 @@ export class ArchivesComponent implements OnInit {
     });
   }
 
+  // calcule la semaine et l'année d'une date et renvoie en string sous format 'SS-YYYY'
+  //   calcWeek(date: Date) {
+  //     date = new Date(date);
+  //     // copie la date pour ne pas modifier l'originale
+  //     date = new Date(
+  //       Date.UTC(date.getFullYear(), date.getMonth(), date.getDate())
+  //     );
+
+  //     date.setUTCDate(date.getUTCDate() + 4 - (date.getUTCDay() || 7));
+  //     // Récupère le premier jour de l'année
+  //     const yearStart: Date = new Date(Date.UTC(date.getUTCFullYear(), 0, 1));
+
+  //     // Calcule le numéro de semaine
+  //     const weekNumber: number = Math.ceil(
+  //       ((date.getTime() - yearStart.getTime()) / 86400000 + 1) / 7
+  //     );
+
+  //     // return 'coucou';
+  //     return `${weekNumber}-${date.getFullYear()}`;
+  //   }
+
   // récupère la date dans le bon format et redirige le routeur
   getArchive(date) {
     const dateSlug: string = `${date.value.slice(6, 8)}-${date.value.slice(
