@@ -10,6 +10,7 @@ import { FeedbackNewFormComponent } from './feedbacks/feedback-new-form/feedback
 import { FeedbackNewItemComponent } from './feedbacks/feedback-new-item/feedback-new-item.component';
 import { LoginFormComponent } from './auth/login-form/login-form.component';
 import { SignupFormComponent } from './auth/signup-form/signup-form.component';
+import { ArchivesComponent } from './archives/archives.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { SignupFormComponent } from './auth/signup-form/signup-form.component';
     FeedbackNewItemComponent,
     LoginFormComponent,
     SignupFormComponent,
+    ArchivesComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],

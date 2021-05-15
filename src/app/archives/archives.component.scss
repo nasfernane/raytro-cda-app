@@ -1,0 +1,17 @@
+.archives-container {
+  width: 70%;
+  margin: 0 auto;
+  font-size: 2rem;
+  padding-top: 3rem;
+
+  &__pick > * {
+    margin-right: 2rem;
+  }
+
+  &__pick {
+    button,
+    input {
+      padding: 1rem 3rem;
+    }
+  }
+}

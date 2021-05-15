@@ -1,3 +1,14 @@
+.background {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -999;
+  background-image: url("../../../assets/img/main-background.jpg");
+  background-size: cover;
+}
+
 .feedback-container {
   margin: 0 auto;
   width: 70%;

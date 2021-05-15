@@ -2,25 +2,23 @@ $color-font: #444444;
 
 .header {
   height: 10rem;
-  width: 100%;
+  width: 70%;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
   font-size: 2rem;
-  padding: 0rem 4rem;
   border-bottom: $color-font solid 0.1rem;
   margin-bottom: 3rem;
 
-  &__title {
-    font-size: 3rem;
-    font-variant: small-caps;
-    font-weight: bold;
-  }
-
   &__nav {
+    z-index: 1;
     display: flex;
     li {
-      margin-left: 2rem;
+      position: relative;
+      z-index: 999;
+      top: 0.1rem;
+      padding: 0.5rem 2rem;
       list-style-type: none;
 
       a:link,
@@ -30,13 +28,18 @@ $color-font: #444444;
         color: #444;
 
         &:hover {
-          text-decoration: underline;
+          font-weight: bold;
         }
       }
     }
 
     li.active {
       font-weight: bold;
+      border-top: $color-font solid 0.1rem;
+      border-left: $color-font solid 0.1rem;
+      border-right: $color-font solid 0.1rem;
+      border-radius: 0.3rem 0.3rem 0 0;
+      background-color: rgb(245, 245, 245, 1);
     }
   }
 }
