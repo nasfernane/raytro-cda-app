@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, Params } from '@angular/router';
 
 @Component({
   selector: 'app-archives',
@@ -15,6 +15,11 @@ export class ArchivesComponent implements OnInit {
     this.archive = {
       date: this.route.snapshot.params['date'],
     };
+
+    // met à jour automatiquement au changement d'url si le composant a déjà été instancié
+    this.route.params.subscribe((params: Params) => {
+      this.archive.date = params['date'];
+    });
   }
 
   // calcule la semaine et l'année d'une date et renvoie en string sous format 'SS-YYYY'
@@ -41,6 +46,6 @@ export class ArchivesComponent implements OnInit {
   // récupère la date dans le bon format et redirige le routeur
   getArchive(date) {
     const archiveDate: string = this.calcWeek(date.value);
-    this.router.navigate([`/archives/${archiveDate}`]);
+    this.router.navigate(['/archives', archiveDate]);
   }
 }
