@@ -15,6 +15,8 @@ import { LoginFormComponent } from './auth/login-form/login-form.component';
 import { SignupFormComponent } from './auth/signup-form/signup-form.component';
 import { ArchivesComponent } from './archives/archives.component';
 import { ArchiveComponent } from './archives/archive/archive.component';
+import { FeedbacksService } from './feedbacks/feedbacks.service';
+import { FeedbacksContainerResolver } from './feedbacks/feedback-container/feedbacks-container-resolver.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,12 @@ import { ArchiveComponent } from './archives/archive/archive.component';
     ArchiveComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
-  providers: [AuthService, AuthGuard],
+  providers: [
+    AuthService,
+    AuthGuard,
+    FeedbacksService,
+    FeedbacksContainerResolver,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

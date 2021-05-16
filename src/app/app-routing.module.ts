@@ -6,10 +6,15 @@ import { FeedbackContainerComponent } from './feedbacks/feedback-container/feedb
 import { ArchivesComponent } from './archives/archives.component';
 import { ArchiveComponent } from './archives/archive/archive.component';
 import { AuthGuard } from './auth-guard.service';
+import { FeedbacksContainerResolver } from './feedbacks/feedback-container/feedbacks-container-resolver.service';
 
 const routes: Routes = [
   { path: '', component: FeedbackContainerComponent },
-  { path: 'feedbacks', component: FeedbackContainerComponent },
+  {
+    path: 'feedbacks',
+    component: FeedbackContainerComponent,
+    resolve: { feedbacks: FeedbacksContainerResolver },
+  },
   { path: 'login', component: LoginFormComponent },
   { path: 'signup', component: SignupFormComponent },
   {
