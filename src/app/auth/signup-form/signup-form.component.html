@@ -1,6 +1,6 @@
 <div class="auth-background"></div>
 
-<form class="authForm" (ngSubmit)="onSignup(form)" #form="ngForm">
+<form class="authForm" (ngSubmit)="onSignup(form.value)" #form="ngForm">
   <div class="authForm__field">
     <label for="username">Nom d'utilisateur</label>
     <input
@@ -68,6 +68,6 @@
       >Vos mots de passe ne correspondent pas</span
     >
   </div>
-  <button class="authForm__btn" type="submit">S'inscrire</button>
+  <button class="btn" type="submit">S'inscrire</button>
   <p>Vous avez déjà un compte ? <a routerLink="/login">Connectez vous</a></p>
 </form>

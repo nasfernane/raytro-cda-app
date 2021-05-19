@@ -1,30 +1,35 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
+import { HttpClient } from '@angular/common/http';
+
 @Component({
   selector: 'app-feedback-new-form',
   templateUrl: './feedback-new-form.component.html',
 })
 export class FeedbackNewFormComponent implements OnInit {
-  @Output() feedbackAdded = new EventEmitter<{
-    type: string;
-    content: string;
-  }>();
+  //   @Output() feedbackAdded = new EventEmitter<{
+  //     type: string;
+  //     content: string;
+  //   }>();
+  formData: { type: string; content: string };
 
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
   ngOnInit(): void {}
 
-  onAddNewLike(likeInput: HTMLInputElement) {
-    this.feedbackAdded.emit({
-      type: 'like',
-      content: likeInput.value,
-    });
-  }
+  onNewFeedback(content: string, type: string) {
+    this.formData = {
+      type: type,
+      content: content,
+    };
 
-  onAddNewDislike(dislikeInput: HTMLInputElement) {
-    this.feedbackAdded.emit({
-      type: 'dislike',
-      content: dislikeInput.value,
-    });
+    this.http
+      .post(
+        'https://raytro-cda-api.herokuapp.com/feedbacks/create',
+        this.formData
+      )
+      .subscribe((response) => {
+        console.log(response);
+      });
   }
 }
