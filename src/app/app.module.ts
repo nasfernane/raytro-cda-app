@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { FormsModule } from '@angular/forms';
 
 import { AuthService } from './auth.service';
 import { AuthGuard } from './auth-guard.service';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FeedbackContainerComponent } from './feedbacks/feedback-container/feedback-container.component';
 import { FeedbackItemComponent } from './feedbacks/feedback-item/feedback-item.component';
@@ -31,7 +32,7 @@ import { FeedbacksContainerResolver } from './feedbacks/feedback-container/feedb
     ArchivesComponent,
     ArchiveComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [
     AuthService,
     AuthGuard,

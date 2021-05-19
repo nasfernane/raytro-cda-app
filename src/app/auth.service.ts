@@ -14,6 +14,10 @@ export class AuthService {
     this.loggedIn = true;
   }
 
+  signUp() {
+    console.log('Vous êtes maintenant inscrit');
+  }
+
   logout() {
     this.loggedIn = false;
   }

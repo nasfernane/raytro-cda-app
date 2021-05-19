@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
+
 import { AuthService } from '../../auth.service';
 
 @Component({
@@ -7,12 +10,17 @@ import { AuthService } from '../../auth.service';
   styleUrls: ['./login-form.component.scss'],
 })
 export class LoginFormComponent implements OnInit {
-  constructor(private AuthService: AuthService) {}
+  constructor(
+    private authService: AuthService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {}
 
-  onLogin() {
-    this.AuthService.login();
-    console.log('Connexion');
+  onLogin(form: NgForm) {
+    this.authService.login();
+    console.log(form.value);
+    this.router.navigate(['../'], { relativeTo: this.route });
   }
 }
