@@ -1,0 +1,13 @@
+// validation
+input.ng-invalid.ng-touched {
+  border: 2px solid #d4533d;
+}
+
+input.ng-valid.ng-touched {
+  border: 2px solid #4d734d;
+}
+
+span.invalidMsg {
+  font-size: 1.6rem;
+  font-style: italic;
+}

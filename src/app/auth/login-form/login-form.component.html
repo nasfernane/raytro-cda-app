@@ -1,22 +1,36 @@
 <div class="auth-background"></div>
 
-<form class="loginForm" (ngSubmit)="onLogin(form)" #form="ngForm">
-  <div class="loginForm__field">
+<form class="authForm" (ngSubmit)="onLogin(form)" #form="ngForm">
+  <div class="authForm__field">
     <label for="email">Adresse email</label>
-    <input type="email" id="email" required ngModel name="email" />
+    <input
+      type="email"
+      id="email"
+      required
+      ngModel
+      name="email"
+      email
+      #email="ngModel"
+    />
+    <span class="invalidMsg" *ngIf="!email.valid && email.touched"
+      >Veuillez entrer une adresse email valide.</span
+    >
   </div>
-  <div class="loginForm__field">
+  <div class="authForm__field">
     <label for="password">Mot de passe</label>
     <input
       type="password"
       id="password"
       required
-      required
       ngModel
       name="password"
+      #password="ngModel"
     />
+    <span class="invalidMsg" *ngIf="!password.valid && password.touched"
+      >Le mot de passe est obligatoire</span
+    >
   </div>
 
-  <button class="loginForm__btn" type="submit">Se connecter</button>
+  <button class="authForm__btn" type="submit">Se connecter</button>
   <p>Vous n'avez pas de compte ? <a routerLink="/signup">Inscrivez vous</a></p>
 </form>

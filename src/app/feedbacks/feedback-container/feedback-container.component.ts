@@ -6,7 +6,6 @@ import { FeedbacksService } from '../feedbacks.service';
 @Component({
   selector: 'app-feedback-container',
   templateUrl: './feedback-container.component.html',
-  styleUrls: ['./feedback-container.component.scss'],
 })
 export class FeedbackContainerComponent implements OnInit {
   feedbacks: Array<{ type: string; content: string }>;

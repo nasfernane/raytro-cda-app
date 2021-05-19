@@ -1,28 +1,73 @@
 <div class="auth-background"></div>
 
-<form class="signupForm" (ngSubmit)="onSignup(form)" #form="ngForm">
-  <div class="signupForm__field">
+<form class="authForm" (ngSubmit)="onSignup(form)" #form="ngForm">
+  <div class="authForm__field">
     <label for="username">Nom d'utilisateur</label>
-    <input type="text" id="username" required ngModel name="username" />
-  </div>
-  <div class="signupForm__field">
-    <label for="email">Adresse e-mail</label>
-    <input type="email" id="email" required ngModel name="email" />
-  </div>
-  <div class="signupForm__field">
-    <label for="password">Mot de passe</label>
-    <input type="password" id="password" required ngModel name="password" />
-  </div>
-  <div class="signupForm__field">
-    <label for="passwordConfirm">Confirmation du mot de passe</label>
     <input
-      type="passwordConfirm"
+      type="text"
+      id="username"
+      required
+      ngModel
+      name="username"
+      #username="ngModel"
+    />
+    <span class="invalidMsg" *ngIf="!username.valid && username.touched"
+      >Veuillez choisir votre nom d'utilisateur</span
+    >
+  </div>
+  <div class="authForm__field">
+    <label for="email">Adresse e-mail</label>
+    <input
+      type="email"
+      id="email"
+      required
+      ngModel
+      name="email"
+      #email="ngModel"
+    />
+    <span class="invalidMsg" *ngIf="!email.valid && email.touched"
+      >Veuillez entrer une adresse email valide.</span
+    >
+  </div>
+  <div class="authForm__field">
+    <label for="password">Mot de passe</label>
+    <input
+      type="password"
       id="password"
       required
-      ngmodel
-      name="passwordConfirm"
+      ngModel
+      name="password"
+      #password="ngModel"
     />
+    <span class="invalidMsg" *ngIf="!password.valid && password.touched"
+      >Veuillez choisir votre mot de passe</span
+    >
   </div>
-  <button class="signupForm__btn" type="submit">S'inscrire</button>
+  <div class="authForm__field">
+    <label for="passwordConfirm">Confirmation du mot de passe</label>
+    <input
+      type="password"
+      id="passwordconfirm"
+      required
+      ngModel
+      name="passwordconfirm"
+      #passwordconfirm="ngModel"
+    />
+    <span
+      class="invalidMsg"
+      *ngIf="!passwordconfirm.valid && passwordconfirm.touched"
+      >Veuillez entrer un mot de passe de confirmation</span
+    >
+    <span
+      class="invalidMsg"
+      *ngIf="
+        passwordconfirm.valid &&
+        password.valid &&
+        passwordconfirm.value != password.value
+      "
+      >Vos mots de passe ne correspondent pas</span
+    >
+  </div>
+  <button class="authForm__btn" type="submit">S'inscrire</button>
   <p>Vous avez déjà un compte ? <a routerLink="/login">Connectez vous</a></p>
 </form>

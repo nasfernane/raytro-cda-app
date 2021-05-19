@@ -5,11 +5,11 @@
   top: 0;
   left: 0;
   z-index: -999;
-  background-image: url("../../../assets/img/retro-bg.jpg");
+  background-image: url("../../img/retro-bg.jpg");
   background-size: cover;
 }
 
-.loginForm {
+.authForm {
   margin: 0 auto;
   margin-top: 10rem;
   width: 50%;
@@ -37,14 +37,6 @@
 
       &:focus {
         outline: none;
-      }
-
-      &:valid {
-        border: 2px solid #4d734d;
-      }
-
-      &:invalid {
-        border: 2px solid #d4533d;
       }
     }
   }

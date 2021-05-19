@@ -1,0 +1,54 @@
+.feedback-container {
+  margin: 0 auto;
+  width: 70%;
+
+  .feedback {
+    font-size: 1.6rem;
+    border: 0.1rem solid black;
+    border-radius: 0.6rem;
+    padding: 2rem 5rem;
+    width: 100%;
+
+    margin-bottom: 3rem;
+
+    &--like {
+      border: 0.2rem solid #4d734d;
+    }
+
+    &--dislike {
+      border: 0.2rem solid #d4533d;
+    }
+  }
+}
+
+.new-feedback {
+    width: 70%;
+    margin: 0 auto;
+    font-size: 1.6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+    &__item {
+      width: 70%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+  
+      input {
+        width: 100%;
+        padding: 1rem 2rem;
+        font-size: 1.6rem;
+      }
+  
+      button {
+        padding: 1rem 2rem;
+        margin-bottom: 1rem;
+      }
+    }
+  
+    &__item > * {
+      margin-bottom: 1rem;
+    }
+  }

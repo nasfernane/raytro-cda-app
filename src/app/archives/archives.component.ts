@@ -4,7 +4,6 @@ import { ActivatedRoute, Router, Params } from '@angular/router';
 @Component({
   selector: 'app-archives',
   templateUrl: './archives.component.html',
-  styleUrls: ['./archives.component.scss'],
 })
 export class ArchivesComponent implements OnInit {
   archive: { date: string };
