@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 import { AuthService } from '../../auth.service';
 
@@ -16,6 +16,7 @@ export class SignupFormComponent implements OnInit {
     password: string;
     passwordConfirm: string;
   };
+
   constructor(
     private authService: AuthService,
     private route: ActivatedRoute,
@@ -39,16 +40,7 @@ export class SignupFormComponent implements OnInit {
         passwordConfirm: form.passwordconfirm,
       };
 
-      this.http
-        .post(
-          'https://raytro-cda-api.herokuapp.com/api/auth/signup',
-          this.newUser
-        )
-        .subscribe((responseData) => {
-          console.log(responseData);
-        });
-
-      //   this.router.navigate(['../'], { relativeTo: this.route });
+      this.authService.signUp(this.newUser);
     }
   }
 }

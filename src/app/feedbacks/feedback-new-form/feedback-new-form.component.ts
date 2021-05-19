@@ -25,7 +25,7 @@ export class FeedbackNewFormComponent implements OnInit {
 
     this.http
       .post(
-        'https://raytro-cda-api.herokuapp.com/feedbacks/create',
+        'https://raytro-cda-api.herokuapp.com/api/feedbacks/create',
         this.formData
       )
       .subscribe((response) => {

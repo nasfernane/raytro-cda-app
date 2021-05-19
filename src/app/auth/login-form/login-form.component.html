@@ -1,6 +1,6 @@
 <div class="auth-background"></div>
 
-<form class="authForm" (ngSubmit)="onLogin(form)" #form="ngForm">
+<form class="authForm" (ngSubmit)="onLogin(form.value)" #form="ngForm">
   <div class="authForm__field">
     <label for="email">Adresse email</label>
     <input

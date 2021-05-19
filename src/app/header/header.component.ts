@@ -6,9 +6,12 @@ import { AuthService } from '../auth.service';
   templateUrl: './header.component.html',
 })
 export class HeaderComponent implements OnInit {
-  constructor(private authService: AuthService) {}
+  userLoggedIn: boolean;
 
-  ngOnInit(): void {}
+  constructor(private authService: AuthService) {}
+  ngOnInit(): void {
+    this.userLoggedIn = this.authService.userLoggedIn;
+  }
 
   // simulation d'une déconnexion. A supprimer plus tard
   onLogout() {

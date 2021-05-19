@@ -3,8 +3,9 @@
     <li routerLinkActive="active"><a routerLink="/feedbacks">Feedbacks</a></li>
     <li routerLinkActive="active"><a routerLink="/archives">Archives</a></li>
     <li routerLinkActive="active"><a routerLink="/admin">Admin</a></li>
-    <li routerLinkActive="active"><a routerLink="/login">Se connecter</a></li>
-    <li routerLinkActive="active"><a routerLink="/signup">S'inscrire</a></li>
+    <li routerLinkActive="active" *ngIf="!userLoggedIn">
+      <a routerLink="/login">Se connecter</a>
+    </li>
     <li routerLinkActive="active" (click)="onLogout()">
       <a href="#">Se déconnecter</a>
     </li>

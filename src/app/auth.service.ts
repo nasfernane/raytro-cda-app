@@ -1,24 +1,57 @@
+import { Router, ActivatedRoute } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+
+@Injectable()
 export class AuthService {
-  loggedIn = false;
+  userLoggedIn = false;
+
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private http: HttpClient
+  ) {}
 
   isAuthenticated() {
     const promise = new Promise((resolve, reject) => {
       setTimeout(() => {
-        resolve(this.loggedIn);
+        resolve(this.userLoggedIn);
       }, 800);
     });
     return promise;
   }
 
-  login() {
-    this.loggedIn = true;
+  signUp(newUser: {
+    name: string;
+    email: string;
+    password: string;
+    passwordConfirm: string;
+  }) {
+    this.http
+      .post('https://raytro-cda-api.herokuapp.com/api/auth/signup', newUser)
+      .subscribe((responseData) => {
+        console.log(responseData);
+        this.userLoggedIn = true;
+        this.router.navigate(['../'], { relativeTo: this.route });
+      });
   }
 
-  signUp() {
-    console.log('Vous êtes maintenant inscrit');
+  login(user: { email: string; password: string }) {
+    this.http
+      .post('https://raytro-cda-api.herokuapp.com/api/auth/login', user)
+      .subscribe((responseData) => {
+        console.log(responseData);
+        this.userLoggedIn = true;
+        this.router.navigate(['../'], { relativeTo: this.route });
+      });
   }
 
   logout() {
-    this.loggedIn = false;
+    this.userLoggedIn = false;
+    this.http
+      .post('https://raytro-cda-api.herokuapp.com/api/auth/logout', {})
+      .subscribe((response) => {
+        console.log(response);
+      });
   }
 }
