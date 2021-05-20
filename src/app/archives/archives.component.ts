@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 
+import { FeedbacksService } from '../feedbacks/feedbacks.service';
+
 @Component({
   selector: 'app-archives',
   templateUrl: './archives.component.html',
@@ -8,7 +10,11 @@ import { ActivatedRoute, Router, Params } from '@angular/router';
 export class ArchivesComponent implements OnInit {
   archive: { date: string };
 
-  constructor(private route: ActivatedRoute, private router: Router) {}
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private feedbacksService: FeedbacksService
+  ) {}
 
   ngOnInit(): void {
     this.archive = {
@@ -48,6 +54,9 @@ export class ArchivesComponent implements OnInit {
       0,
       4
     )}`;
+
     this.router.navigate(['/archives', dateSlug]);
+
+    this.feedbacksService.fetchArchive(dateSlug);
   }
 }

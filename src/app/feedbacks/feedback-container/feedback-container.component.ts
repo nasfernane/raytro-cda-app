@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router, Params, Data } from '@angular/router';
+import { ActivatedRoute, Router, Data } from '@angular/router';
 import { Feedback } from '../feedback.model';
 import { FeedbacksService } from '../feedbacks.service';
 
@@ -21,12 +21,7 @@ export class FeedbackContainerComponent implements OnInit {
     this.route.data.subscribe((data: Data) => {
       this.feedbacks = data['feedbacks'];
     });
-  }
-  onFeedbackAdded(feedback: Feedback) {
-    this.feedbacksService.addFeedback(feedback.type, feedback.content);
-  }
 
-  getFeedbacks() {
-    return this.feedbacksService.getFeedbacks();
+    this.feedbacksService.fetchCurrentWeek();
   }
 }

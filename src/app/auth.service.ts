@@ -38,7 +38,9 @@ export class AuthService {
 
   login(user: { email: string; password: string }) {
     this.http
-      .post('https://raytro-cda-api.herokuapp.com/api/auth/login', user)
+      .post('https://raytro-cda-api.herokuapp.com/api/auth/login', user, {
+        withCredentials: true,
+      })
       .subscribe((responseData) => {
         console.log(responseData);
         this.userLoggedIn = true;
