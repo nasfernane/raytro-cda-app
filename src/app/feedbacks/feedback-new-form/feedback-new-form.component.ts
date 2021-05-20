@@ -16,6 +16,7 @@ export class FeedbackNewFormComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  // ajoute un nouveau feedback à la bdd via le service
   onNewFeedback(content: string, type: string) {
     this.formData = {
       category: type,
