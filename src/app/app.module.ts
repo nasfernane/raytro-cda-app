@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AuthService } from './auth.service';
 import { AuthGuard } from './auth-guard.service';
@@ -19,6 +19,7 @@ import { ArchivesComponent } from './archives/archives.component';
 import { ArchiveComponent } from './archives/archive/archive.component';
 import { FeedbacksService } from './feedbacks/feedbacks.service';
 import { FeedbacksContainerResolver } from './feedbacks/feedback-container/feedbacks-container-resolver.service';
+import { HttpRequestInterceptor } from './http.interceptor';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,11 @@ import { FeedbacksContainerResolver } from './feedbacks/feedback-container/feedb
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpRequestInterceptor,
+      multi: true,
+    },
     AuthService,
     AuthGuard,
     FeedbacksService,
