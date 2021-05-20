@@ -1,7 +1,7 @@
-<div *ngIf="feedback.type === 'like'" class="feedback feedback--like">
+<div *ngIf="feedback.category === 'like'" class="feedback feedback--like">
   <p class="feedback__content">{{ feedback.content }}</p>
 </div>
 
-<div *ngIf="feedback.type === 'dislike'" class="feedback feedback--dislike">
+<div *ngIf="feedback.category === 'dislike'" class="feedback feedback--dislike">
   <p class="feedback__content">{{ feedback.content }}</p>
 </div>

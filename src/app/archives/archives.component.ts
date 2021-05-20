@@ -1,30 +1,66 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
-
-import { FeedbacksService } from '../feedbacks/feedbacks.service';
+import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
+import { FeedbackContainerComponent } from '../feedbacks/feedback-container/feedback-container.component';
 
 @Component({
   selector: 'app-archives',
   templateUrl: './archives.component.html',
 })
 export class ArchivesComponent implements OnInit {
-  archive: { date: string };
+  loadedFeedbacks = [];
 
   constructor(
-    private route: ActivatedRoute,
     private router: Router,
-    private feedbacksService: FeedbacksService
+    private http: HttpClient,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
-    this.archive = {
-      date: this.route.snapshot.params['date'],
-    };
-
     // met à jour automatiquement au changement d'url si le composant a déjà été instancié
     this.route.params.subscribe((params: Params) => {
-      this.archive.date = params['date'];
+      this.fetchArchive(params['date']);
     });
+  }
+
+  // récupère la date dans le bon format et redirige le routeur
+  pickArchive(date) {
+    const dateSlug: string = `${date.value.slice(6, 8)}-${date.value.slice(
+      0,
+      4
+    )}`;
+
+    this.router.navigate(['/archives', dateSlug]);
+  }
+
+  fetchArchive(date: string) {
+    this.http
+      .get<{
+        data: {
+          data: Array<{
+            key: {
+              createdAt: string;
+              _id: string;
+              category: string;
+              content: string;
+            };
+          }>;
+          status: string;
+        };
+      }>(`https://raytro-cda-api.herokuapp.com/api/feedbacks/week/${date}`)
+      .pipe(
+        map((responseData) => {
+          const feedbacksArray = [];
+          for (const key in responseData.data.data) {
+            feedbacksArray.push(responseData.data.data[key]);
+          }
+          return feedbacksArray;
+        })
+      )
+      .subscribe((data) => {
+        this.loadedFeedbacks = data;
+      });
   }
 
   // calcule la semaine et l'année d'une date et renvoie en string sous format 'SS-YYYY'
@@ -47,16 +83,4 @@ export class ArchivesComponent implements OnInit {
   //     // return 'coucou';
   //     return `${weekNumber}-${date.getFullYear()}`;
   //   }
-
-  // récupère la date dans le bon format et redirige le routeur
-  getArchive(date) {
-    const dateSlug: string = `${date.value.slice(6, 8)}-${date.value.slice(
-      0,
-      4
-    )}`;
-
-    this.router.navigate(['/archives', dateSlug]);
-
-    this.feedbacksService.fetchArchive(dateSlug);
-  }
 }

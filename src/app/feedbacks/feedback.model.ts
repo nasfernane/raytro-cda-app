@@ -1,9 +1,9 @@
 export class Feedback {
-  public type: string;
+  public category: string;
   public content: string;
 
-  constructor(type: string, content: string) {
-    this.type = type;
+  constructor(category: string, content: string) {
+    this.category = category;
     this.content = content;
   }
 }

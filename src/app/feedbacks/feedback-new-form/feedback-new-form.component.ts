@@ -23,5 +23,11 @@ export class FeedbackNewFormComponent implements OnInit {
     };
 
     this.feedbacksService.newFeedback(this.formData);
+
+    if (this.formData.category === 'like') {
+      this.likeForm.resetForm();
+    } else {
+      this.dislikeForm.resetForm();
+    }
   }
 }

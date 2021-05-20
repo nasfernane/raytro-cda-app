@@ -1,9 +1,32 @@
+<h1>Archives</h1>
 <div class="archives-container">
   <div class="archives-container__pick">
     <label for="archive-date">Choisisez votre date</label>
     <input type="week" id="archive-date" #dateInput />
-    <button (click)="getArchive(dateInput)">Voir</button>
+    <button (click)="pickArchive(dateInput)">Voir</button>
+  </div>
+</div>
+
+<div class="feedback-container" *ngIf="loadedFeedbacks.length > 1">
+  <div class="feedback-container__section">
+    <ul>
+      <div *ngFor="let feedback of loadedFeedbacks">
+        <app-feedback-item
+          [feedback]="feedback"
+          *ngIf="feedback.category === 'like'"
+        ></app-feedback-item>
+      </div>
+    </ul>
   </div>
 
-  <router-outlet></router-outlet>
+  <div class="feedback-container__section">
+    <ul>
+      <div *ngFor="let feedback of loadedFeedbacks">
+        <app-feedback-item
+          [feedback]="feedback"
+          *ngIf="feedback.category === 'dislike'"
+        ></app-feedback-item>
+      </div>
+    </ul>
+  </div>
 </div>

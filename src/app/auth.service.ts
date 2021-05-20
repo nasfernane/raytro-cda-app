@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class AuthService {
-  userLoggedIn = false;
+  public userLoggedIn = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -42,10 +42,9 @@ export class AuthService {
         withCredentials: true,
       })
       .subscribe((responseData) => {
-        console.log(responseData);
-        this.userLoggedIn = true;
         this.router.navigate(['../'], { relativeTo: this.route });
       });
+    this.userLoggedIn = true;
   }
 
   logout() {

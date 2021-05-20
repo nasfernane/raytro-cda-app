@@ -1,6 +1,26 @@
-<div class="feedback-container">
-  <app-feedback-item *ngFor="let feedback of feedbacks" [feedback]="feedback">
-  </app-feedback-item>
+<h1>Semaine en cours</h1>
+<div class="feedback-container" *ngIf="loadedFeedbacks.length > 1">
+  <div class="feedback-container__section">
+    <ul>
+      <div *ngFor="let feedback of loadedFeedbacks">
+        <app-feedback-item
+          [feedback]="feedback"
+          *ngIf="feedback.category === 'like'"
+        ></app-feedback-item>
+      </div>
+    </ul>
+  </div>
+
+  <div class="feedback-container__section">
+    <ul>
+      <div *ngFor="let feedback of loadedFeedbacks">
+        <app-feedback-item
+          [feedback]="feedback"
+          *ngIf="feedback.category === 'dislike'"
+        ></app-feedback-item>
+      </div>
+    </ul>
+  </div>
 </div>
 
-<app-feedback-new-form></app-feedback-new-form>
+<!-- <app-feedback-new-form></app-feedback-new-form> -->

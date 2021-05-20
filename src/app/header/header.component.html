@@ -2,12 +2,15 @@
   <ul class="header__nav">
     <li routerLinkActive="active"><a routerLink="/feedbacks">Feedbacks</a></li>
     <li routerLinkActive="active"><a routerLink="/archives">Archives</a></li>
+    <li routerLinkActive="active">
+      <a routerLink="/contribute">Contribuer</a>
+    </li>
     <li routerLinkActive="active"><a routerLink="/admin">Admin</a></li>
     <li routerLinkActive="active" *ngIf="!userLoggedIn">
-      <a routerLink="/login">Se connecter</a>
+      <a routerLink="/login">Connexion</a>
     </li>
-    <li routerLinkActive="active" (click)="onLogout()">
-      <a href="#">Se déconnecter</a>
+    <li routerLinkActive="active" *ngIf="userLoggedIn" (click)="onLogout()">
+      <a href="#">Déconnexion</a>
     </li>
   </ul>
 </nav>

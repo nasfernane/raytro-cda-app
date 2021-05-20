@@ -4,26 +4,20 @@ import { LoginFormComponent } from './auth/login-form/login-form.component';
 import { SignupFormComponent } from './auth/signup-form/signup-form.component';
 import { FeedbackContainerComponent } from './feedbacks/feedback-container/feedback-container.component';
 import { ArchivesComponent } from './archives/archives.component';
-import { ArchiveComponent } from './archives/archive/archive.component';
+import { FeedbackNewFormComponent } from './feedbacks/feedback-new-form/feedback-new-form.component';
 import { AuthGuard } from './auth-guard.service';
-import { FeedbacksContainerResolver } from './feedbacks/feedback-container/feedbacks-container-resolver.service';
 
 const routes: Routes = [
   { path: '', component: FeedbackContainerComponent },
   {
     path: 'feedbacks',
     component: FeedbackContainerComponent,
-    resolve: { feedbacks: FeedbacksContainerResolver },
   },
   { path: 'login', component: LoginFormComponent },
   { path: 'signup', component: SignupFormComponent },
-  {
-    path: 'archives',
-    // canActivate: [AuthGuard],
-    canActivateChild: [AuthGuard],
-    component: ArchivesComponent,
-    children: [{ path: ':date', component: ArchiveComponent }],
-  },
+  { path: 'archives', component: ArchivesComponent },
+  { path: 'contribute', component: FeedbackNewFormComponent },
+  { path: 'archives/:date', component: ArchivesComponent },
 ];
 
 @NgModule({

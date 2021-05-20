@@ -16,9 +16,7 @@ import { FeedbackNewItemComponent } from './feedbacks/feedback-new-item/feedback
 import { LoginFormComponent } from './auth/login-form/login-form.component';
 import { SignupFormComponent } from './auth/signup-form/signup-form.component';
 import { ArchivesComponent } from './archives/archives.component';
-import { ArchiveComponent } from './archives/archive/archive.component';
 import { FeedbacksService } from './feedbacks/feedbacks.service';
-import { FeedbacksContainerResolver } from './feedbacks/feedback-container/feedbacks-container-resolver.service';
 import { HttpRequestInterceptor } from './http.interceptor';
 
 @NgModule({
@@ -32,7 +30,6 @@ import { HttpRequestInterceptor } from './http.interceptor';
     LoginFormComponent,
     SignupFormComponent,
     ArchivesComponent,
-    ArchiveComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [
@@ -44,7 +41,6 @@ import { HttpRequestInterceptor } from './http.interceptor';
     AuthService,
     AuthGuard,
     FeedbacksService,
-    FeedbacksContainerResolver,
   ],
   bootstrap: [AppComponent],
 })
