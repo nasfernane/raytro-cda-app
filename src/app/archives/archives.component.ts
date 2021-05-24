@@ -39,6 +39,7 @@ export class ArchivesComponent implements OnInit {
     this.router.navigate(['/archives', dateSlug]);
   }
 
+  // récupère le fetch des archives selon la semaine choisie par l'utilisateur, via le service
   onFetchArchive(date: string) {
     this.isFetching = true;
     this.feedbacksService.fetchArchive(date).subscribe((feedbacks) => {
